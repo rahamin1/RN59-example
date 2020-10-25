@@ -1,0 +1,53 @@
+platform :ios, '11.1'
+
+target 'myproject' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for myproject
+  rn_path = '../node_modules/react-native'
+  pod 'React', path: rn_path, subspecs: [
+  'CxxBridge',
+  'RCTText',
+  'RCTNetwork',
+  'RCTWebSocket',
+  'RCTAnimation',
+  'RCTActionSheet',
+  'RCTGeolocation',
+  'RCTImage',
+  'RCTSettings',
+  'RCTVibration',
+  'RCTLinkingIOS'
+  ]
+  pod 'yoga', :path => "#{rn_path}/ReactCommon/yoga"
+  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+
+  target 'myprojectTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  #post_install do |installer|
+  #  installer.pods_project.targets.each do |target|
+  #      if target.name == "React"
+  #          target.remove_from_project
+  #      end
+  #  end
+  #end
+
+end
+
+target 'myproject-tvOS' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for myproject-tvOS
+
+  target 'myproject-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
